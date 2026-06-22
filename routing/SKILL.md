@@ -13,7 +13,7 @@ All requests: base `https://api.eduue.com.br/ext/v1/whatsapp`, headers `X-API-Ke
 
 ## Read / save config
 
-Fields: `enabled` (bool), `strategy` (`round_robin` | `fixed`), `agents` (list of agent ids for round-robin), `fixed` (agent id when strategy is fixed).
+Fields: `enabled` (bool), `strategy` (`ROUND_ROBIN` | `FIXED`, uppercase), `agents` (list of agent ids for round-robin), `fixed` (agent id when strategy is fixed).
 
 ```bash
 # read
@@ -23,12 +23,12 @@ curl https://api.eduue.com.br/ext/v1/whatsapp/routing \
 # save (round-robin over a team)
 curl -X POST https://api.eduue.com.br/ext/v1/whatsapp/routing \
   -H "X-API-Key: $EDUUE_API_KEY" -H "X-Tenant-ID: $TENANT_ID" -H "Content-Type: application/json" \
-  -d '{"enabled":true,"strategy":"round_robin","agents":["ana","bruno","carla"],"fixed":""}'
+  -d '{"enabled":true,"strategy":"ROUND_ROBIN","agents":["ana","bruno","carla"],"fixed":""}'
 
 # save (everything to one agent)
 curl -X POST https://api.eduue.com.br/ext/v1/whatsapp/routing \
   -H "X-API-Key: $EDUUE_API_KEY" -H "X-Tenant-ID: $TENANT_ID" -H "Content-Type: application/json" \
-  -d '{"enabled":true,"strategy":"fixed","agents":[],"fixed":"ana"}'
+  -d '{"enabled":true,"strategy":"FIXED","agents":[],"fixed":"ana"}'
 ```
 
 ## Notes

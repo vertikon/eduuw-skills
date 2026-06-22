@@ -16,7 +16,7 @@ All requests: base `https://api.eduue.com.br/ext/v1/whatsapp`, headers `X-API-Ke
 ```bash
 curl "https://api.eduue.com.br/ext/v1/whatsapp/conversations?limit=50&offset=0" \
   -H "X-API-Key: $EDUUE_API_KEY" -H "X-Tenant-ID: $TENANT_ID"
-# → { "conversations":[ {"id":"5585992009999","contactName":"João","lastMessage":"...","updatedAt":"...","unread":2} ], "total": 12 }
+# → { "conversations":[ {"id":"5585992009999","contact_name":"João","contact_phone":"5585992009999","lastMessage":"...","updatedAt":"...","unread":2} ], "total": 12 }
 ```
 
 The conversation `id` is the contact's phone (digits only).
@@ -58,6 +58,6 @@ async function reply(phone, text) {
 
 | Error | Meaning | Fix |
 |-------|---------|-----|
-| `account not found for tenant` | No connected number | Connect a number (`onboarding`/`phone-numbers`) |
+| `424 no_whatsapp_number_connected` | No connected number | Connect a number (`onboarding`/`phone-numbers`) |
 | 24h window failure | Free-form outside the window | Send an approved template (`send-message`) |
 | empty `conversations` | No inbound yet | Conversations appear after the first inbound message |

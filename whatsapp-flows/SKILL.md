@@ -50,6 +50,6 @@ curl -X DELETE https://api.eduue.com.br/ext/v1/whatsapp/flows/<FLOW_ID> -H "X-AP
 
 | Error | Meaning | Fix |
 |-------|---------|-----|
-| `account not found for tenant` | No connected number | Connect a number (`onboarding`) |
+| `424 no_whatsapp_number_connected` | No connected number | Connect a number (`onboarding`) |
 | publish fails — encryption | Flows public key not uploaded | Finish Flows encryption setup on the number |
 | invalid flow_json | Schema error | Validate against Meta's Flow JSON schema |

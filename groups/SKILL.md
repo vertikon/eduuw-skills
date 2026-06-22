@@ -63,6 +63,6 @@ curl -X POST https://api.eduue.com.br/ext/v1/whatsapp/groups/<GROUP_ID>/join-req
 
 | Error | Meaning | Fix |
 |-------|---------|-----|
-| `account not found for tenant` | No connected number | Connect a number (`onboarding`) |
+| `424 no_whatsapp_number_connected` | No connected number | Connect a number (`onboarding`) |
 | 403 | Key missing `whatsapp:write` | Mint a key with write scope |
 | member add fails | Number not on WhatsApp / privacy | Verify the phone is a valid WhatsApp user |

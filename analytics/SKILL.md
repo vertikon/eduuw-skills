@@ -57,5 +57,5 @@ curl -X POST "https://api.eduue.com.br/ext/v1/whatsapp/analytics/export?start=17
 
 | Error | Meaning | Fix |
 |-------|---------|-----|
-| `account not found for tenant` | No connected number | Connect a number (`onboarding`) |
+| `424 no_whatsapp_number_connected` | No connected number | Connect a number (`onboarding`) |
 | empty points | No traffic in the window | Widen the period / send messages first |

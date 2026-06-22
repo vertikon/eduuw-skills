@@ -19,7 +19,7 @@ A quick reply has `title`, a `shortcut` (e.g. `/boleto`), and the `text` body. S
 # list
 curl https://api.eduue.com.br/ext/v1/whatsapp/quick-replies \
   -H "X-API-Key: $EDUUE_API_KEY" -H "X-Tenant-ID: $TENANT_ID"
-# → { "quickReplies":[ {"id":"...","title":"2ª via boleto","shortcut":"/boleto","text":"..."} ] }
+# → { "quick_replies":[ {"id":"...","title":"2ª via boleto","shortcut":"/boleto","text":"..."} ], "total": 1 }
 
 # create / update
 curl -X POST https://api.eduue.com.br/ext/v1/whatsapp/quick-replies \

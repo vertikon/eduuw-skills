@@ -88,7 +88,7 @@ curl -X POST https://api.eduue.com.br/ext/v1/whatsapp/messages/<MESSAGE_ID>/read
 
 | Error | Meaning | Fix |
 |-------|---------|-----|
-| `account not found for tenant` | No connected/active number | Connect a number (`phone-numbers`) |
+| `424 no_whatsapp_number_connected` | No connected/active number | Connect a number (`phone-numbers`) |
 | 24h window failure from Meta | Free-form outside window | Send an approved template |
 | template not approved | Template still PENDING/REJECTED | Wait for approval / fix the template |
 | 401 / 403 | Bad key or tenant not allowed | Check `X-API-Key` + `X-Tenant-ID` scopes |

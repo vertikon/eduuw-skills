@@ -35,8 +35,9 @@ Mint a key in **Chaves de API** with only the scopes you need.
 
 - **Phone numbers:** digits only, country code first, no `+` (ex.: `5585992009999`). The platform normalizes; prefer full E.164 digits.
 - **Tenant isolation:** every resource is scoped to `X-Tenant-ID`. A key can only act on tenants it is allowed to.
-- **List responses:** objects like `{ "templates": [...] }`, `{ "contacts": [...] }`, `{ "accounts": [...] }`, `{ "functions": [...] }`.
-- **Errors:** non-2xx returns `{ "error": "<message>" }`. 401 = bad/missing key or tenant; 403 = tenant not allowed for key; 400 = bad payload.
+- **List responses:** objects like `{ "templates": [...] }`, `{ "contacts": [...] }`, `{ "accounts": [...] }`, `{ "functions": [...] }`. Some also include `"total"`.
+- **JSON field casing (heads-up):** the edge is **not yet uniform**. Most newer resources use `camelCase` (`usage`, `plan`, `inbox`: `limitMsgOut`, `assignedTo`), but several use `snake_case` (`conversations`: `contact_name`/`contact_phone`; `quick_replies`; `optins`: `updated_at`) and some enums are UPPERCASE (`routing.strategy` = `ROUND_ROBIN`/`FIXED`; opt-in `OPTED_IN`/`OPTED_OUT`). Read each skill's example for the exact shape; don't assume one convention. (Standardization is planned but breaking, so it's deferred.)
+- **Errors:** non-2xx returns `{ "error": "<message>" }`. 401 = bad/missing key or tenant · 403 = tenant not allowed for key · 400 = bad payload · **424 `no_whatsapp_number_connected`** = the tenant has no WhatsApp number connected yet (templates/messages/analytics/flows) — do onboarding first.
 
 ## Key Business Rules
 
