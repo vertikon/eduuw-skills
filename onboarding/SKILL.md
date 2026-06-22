@@ -11,6 +11,19 @@ Letting a customer (sub-account / tenant) connect their **own** WhatsApp Busines
 
 All requests: base `https://api.eduue.com.br/ext/v1/whatsapp`, headers `X-API-Key` + `X-Tenant-ID` (+ `Content-Type: application/json`). See `eduuw-rules`.
 
+## First-run checklist (start here)
+
+One call to drive a guided onboarding UI/agent — what's done, what's blocking, and the next step:
+
+```bash
+curl https://api.eduue.com.br/ext/v1/whatsapp/onboarding/status \
+  -H "X-API-Key: $EDUUE_API_KEY" -H "X-Tenant-ID: $TENANT_ID"
+# → { "connected":false,"hasNumber":false,"webhookConfigured":false,"hasTemplate":false,
+#     "blockers":["Conecte um número WhatsApp"], "nextStep":"connect_number" }
+```
+
+`nextStep`: `connect_number` → `create_template` → `ready`. Loop on it until `ready`.
+
 ## Connection status
 
 ```bash
