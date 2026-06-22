@@ -26,14 +26,25 @@ claude mcp add --transport http eduuw \
 | Skill | Purpose |
 |-------|---------|
 | `eduuw-rules` | Foundational context: base URL, auth (`X-API-Key` + `X-Tenant-ID`), scopes, 24h window, business rules. Always loaded. |
-| `send-message` | Send text, template, media and interactive WhatsApp messages; status & mark-read. |
+| `onboarding` | Self-service setup links + connection status (customer connects their own WABA). |
+| `phone-numbers` | Connected numbers, quality/health, set active, deregister/migrate. |
+| `send-message` | Send text, template, media and interactive messages; status & mark-read. |
 | `whatsapp-templates` | List/create/delete templates; AI-generate a template. |
+| `conversations` | Read conversation threads + message history; reply as agent. |
+| `inbox` | Team inbox: assign, status, bot-human handoff, internal notes. |
+| `routing` | Auto-assign inbound conversations to agents (round-robin/fixed). |
+| `quick-replies` | Canned reply snippets with shortcuts. |
 | `broadcast-campaign` | Bulk template sends to a list/segment (opt-out aware). |
 | `contacts-management` | Contacts, tags/segments, opt-in/out consent. |
-| `phone-numbers` | Connected numbers, quality/health, set active, deregister/migrate. |
-| `webhook-setup` | Subscribe to events with HMAC-signed deliveries. |
-| `functions` | Manage serverless functions (TypeScript reacting to events). |
+| `automation` | Node-based workflows that reply to inbound (build/simulate/run). |
 | `ai-agent` | Configure the AI bot (RAG) and keyword auto-replies. |
+| `functions` | Serverless functions (TypeScript reacting to events). |
+| `whatsapp-flows` | Native in-chat forms (WhatsApp Flows): create/upload/publish. |
+| `webhook-setup` | Subscribe to events with HMAC-signed deliveries. |
+| `groups` | WhatsApp groups: members, roles, invite links, join requests. |
+| `analytics` | Messaging/conversation analytics, delivery rates, CSV export. |
+| `cx-insights` | Agent metrics + AI-classified conversation topics. |
+| `billing` | Usage metering + per-tenant plan limits (quota). |
 
 ## Auth
 
