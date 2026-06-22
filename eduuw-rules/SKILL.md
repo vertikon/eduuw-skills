@@ -20,7 +20,7 @@ There is no language SDK: integrate over plain HTTP (curl / fetch / requests). E
 
 ```bash
 export EDUUE_API_KEY=vtk_live_xxx
-export TENANT_ID=4f249adb-3de8-47bc-8b9b-785cf4181939
+export TENANT_ID=384132d7-deda-4931-afaf-f15fe31b17fa
 ```
 
 ## Scopes
@@ -70,3 +70,14 @@ curl -s https://api.eduue.com.br/ext/v1/whatsapp/templates \
 | `webhook-setup` | Subscribe to events (HMAC-signed deliveries) |
 | `functions` | Serverless functions (TypeScript) reacting to events |
 | `ai-agent` | AI bot / auto-reply over inbound conversations |
+| `inbox` | Team inbox: assign, status, bot↔human handoff, internal notes |
+| `conversations` | Read conversation threads + message history; reply as agent |
+| `routing` | Auto-assign inbound conversations to agents (round-robin/fixed) |
+| `quick-replies` | Canned reply snippets with shortcuts |
+| `automation` | Node-based workflows that reply to inbound (build/simulate/run) |
+| `onboarding` | Self-service setup links + connection status (customer connects own WABA) |
+| `whatsapp-flows` | Native in-chat forms (WhatsApp Flows): create/upload/publish |
+| `groups` | WhatsApp groups: members, roles, invite links, join requests |
+| `analytics` | Messaging/conversation analytics, delivery rates, CSV export |
+| `cx-insights` | Agent metrics + AI-classified conversation topics |
+| `billing` | Usage metering + per-tenant plan limits (quota) |
