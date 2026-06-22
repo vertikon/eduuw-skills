@@ -9,7 +9,7 @@ description: Manage eduuw serverless functions — TypeScript that reacts to eve
 
 Author and manage serverless functions: TypeScript that reacts to eduuw events (a message arrives, a broadcast is sent, etc.). Base + auth: see `eduuw-rules`.
 
-> **Status:** function **management** (code + trigger + status) is live. The **execution runtime** (sandboxed run on event) is being activated — until then, deploying a function stores it and its trigger; it does not yet execute. Plan your integration accordingly.
+> **Status:** function **management** (code + trigger + status) is live. The **execution runtime** runs each function as an **isolated Cloudflare Worker** (Workers for Platforms — see *Execution & isolation*). The dispatcher is online and routing is proven; the deploy→execute wiring is being connected. Until fully wired, a `DEPLOYED` function is stored + routable but may not yet auto-run on events.
 
 ## Model
 
@@ -62,6 +62,15 @@ export default async function onMessage(event, ctx) {
   await ctx.wa.sendText(event.message.from, reply)
 }
 ```
+
+## Execution & isolation
+
+Functions run as **isolated Cloudflare Workers** (Workers for Platforms), not `eval` inside the platform process:
+
+- Each function is its **own user worker** inside a dispatch namespace — no shared state, with per-worker CPU/memory/time limits.
+- A front **dispatcher worker** authenticates the request (shared secret) and routes to the right user worker by script name (`X-Function-Script`).
+- Strong multi-tenant isolation: a function only ever sees its own `ctx` (`wa`/`ai`/`fetch`/`secrets`) — never another tenant's data.
+- `status:"DEPLOYED"` publishes the code as a user worker; the runtime invokes it on the `trigger` event with `(event, ctx)`. **Secrets are injected per-worker — never put secrets in the `code`.**
 
 ## Starter templates
 
