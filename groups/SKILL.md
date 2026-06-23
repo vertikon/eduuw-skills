@@ -29,6 +29,8 @@ curl -X PUT https://api.eduue.com.br/ext/v1/whatsapp/groups/<GROUP_ID> \
 curl -X DELETE https://api.eduue.com.br/ext/v1/whatsapp/groups/<GROUP_ID> -H "X-API-Key: $EDUUE_API_KEY" -H "X-Tenant-ID: $TENANT_ID"
 ```
 
+> ⚠️ Delete acts on the real WhatsApp group for **all** members — confirm the `GROUP_ID` and tenant before running.
+
 ## Members & roles
 
 ```bash

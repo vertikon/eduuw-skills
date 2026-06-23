@@ -52,6 +52,8 @@ curl -X PUT https://api.eduue.com.br/ext/v1/whatsapp/plan \
   -d '{"planName":"Pro","limitMsgOut":100000,"limitAiCall":5000,"limitAiTokens":0}'
 ```
 
+> ⚠️ Enforcement is immediate. A low `limitMsgOut`/`limitAiCall` makes the automation engine **start skipping sends/AI for that tenant** as soon as the month's counter passes it. Use `0` (unlimited) unless you intend to cap. PUT replaces the whole plan row.
+
 ```js
 // gate provisioning by usage
 const u = await (await fetch(`${BASE}/usage`, { headers })).json()
