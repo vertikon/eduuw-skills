@@ -42,6 +42,8 @@ curl -X POST https://api.eduue.com.br/ext/v1/whatsapp/functions \
 ```
 Send `status:"DRAFT"` to save without deploying. Include the `id` to update an existing function.
 
+> ⚠️ `status:"DEPLOYED"` publishes the code as a **live worker** that runs on real inbound events for the tenant. Validate as `DRAFT` (and via the dashboard's test runner) first, and never hardcode secrets in `code` — inject them per-worker (see *Execution & isolation*).
+
 ## Get (with code) / delete
 
 ```bash

@@ -30,6 +30,8 @@ curl -X POST https://api.eduue.com.br/ext/v1/whatsapp/broadcasts \
 ```
 Required: `template_name`, `recipients`, `scheduled_at` (RFC3339; use now/near-now to send immediately).
 
+> ⚠️ This sends a real WhatsApp message to **every** recipient on a production number. Double-check the recipient list and that the template is the right one — once dispatched it can't be recalled (only future/scheduled broadcasts can be cancelled). Send a one-recipient test first.
+
 ## List / cancel
 
 ```bash

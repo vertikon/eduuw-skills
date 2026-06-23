@@ -43,6 +43,8 @@ curl -X DELETE https://api.eduue.com.br/ext/v1/whatsapp/contacts/<PHONE> \
   -H "X-API-Key: $EDUUE_API_KEY" -H "X-Tenant-ID: $TENANT_ID"
 ```
 
+> ⚠️ Permanent: removes the contact and its tags for the tenant. To stop messaging someone without losing the record, set `OPTED_OUT` (below) instead of deleting.
+
 ## Segments
 
 There is no separate segments endpoint — derive them client-side from contact tags:

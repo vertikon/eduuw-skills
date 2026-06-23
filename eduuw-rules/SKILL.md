@@ -1,6 +1,6 @@
 ---
 name: eduuw-rules
-description: Foundational context for the eduuw WhatsApp Business API. Always loaded.
+description: Foundational context for the eduuw WhatsApp Business API — base URL, auth headers (X-API-Key + X-Tenant-ID), scopes, conventions and business rules (24h window, opt-out). Always loaded; read first for any eduuw WhatsApp task (send messages, templates, broadcasts, contacts, webhooks, functions, AI bot, inbox, analytics).
 ---
 
 # eduuw API Context
